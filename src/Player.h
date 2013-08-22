@@ -1,10 +1,13 @@
 // Header file for Player class
 
+#include "Unit.h"
+
 #ifndef PLAYER_H
 #define PLAYER_H
 
-enum directionEnum {UP, DOWN, LEFT, RIGHT}
+enum directionEnum {UP, DOWN, LEFT, RIGHT};
 
+//class Player : public Unit {
 class Player {
     private:
         int ammo;
@@ -31,6 +34,6 @@ class Player {
         int get_xspeed();
         int get_yspeed();
         int get_state();
-}
+};
 
 #endif

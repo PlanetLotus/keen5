@@ -10,31 +10,31 @@ Player::Player() {
 }
 
 void Player::shoot() {
-    NULL;
+    return;
 }
 
 void Player::walk(directionEnum dir) {
-    NULL;
+    return;
 }
 
 void Player::jump() {
-    NULL;
+    return;
 }
 
 void Player::pogo() {
-    NULL;
+    return;
 }
 
 void Player::look(directionEnum dir) {
-    NULL;
+    return;
 }
 
 void Player::climb(directionEnum dir) {
-    NULL;
+    return;
 }
 
 void Player::enter_door() {
-    NULL;
+    return;
 }
 
 // Getters and setters
@@ -47,4 +47,4 @@ void Player::set_state(int x) { state = x; }
 int Player::get_ammo() { return ammo; }
 int Player::get_xspeed() { return xspeed; }
 int Player::get_yspeed() { return yspeed; }
-int Player::get_status() { return status; }
+int Player::get_state() { return state; }
