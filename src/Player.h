@@ -1,13 +1,13 @@
 // Header file for Player class
 
-#include "Unit.h"
+//#include "Unit.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
 
 enum directionEnum {UP, DOWN, LEFT, RIGHT};
 
-class Player : public Unit {
+class Player {
     private:
         int ammo;
         int xspeed;     // Movement speed

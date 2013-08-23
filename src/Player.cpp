@@ -2,12 +2,12 @@
 
 #include "Player.h"
 
-/*Player::Player() {
+Player::Player() {
     ammo = 5;   // Might depend on difficulty level
     xspeed = 10;
     yspeed = 7;
     state = 0;
-}*/
+}
 
 void Player::shoot() {
     return;

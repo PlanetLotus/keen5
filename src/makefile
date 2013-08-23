@@ -13,6 +13,6 @@ clean:
 
 # Dependencies
 
-Player.o: Player.cpp Unit.h
+Player.o: Player.cpp
 helpers.o: helpers.cpp
 main.o: main.cpp

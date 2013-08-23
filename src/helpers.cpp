@@ -1,12 +1,4 @@
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_ttf.h"
-#include <string>
-
-// Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-const int SCREEN_BPP = 32;
+#include "helpers.h"
 
 SDL_Surface *load_image(std::string filename) {
     SDL_Surface *loadedImage = NULL;
@@ -65,20 +57,20 @@ bool init() {
     if (TTF_Init() == -1) return false;
 
     // Set window caption
-    SDL_WM_SetCaption("TTF Test", NULL);
+    SDL_WM_SetCaption("Commander Keen 5", NULL);
 
     return true;
 }
 
 bool load_files() {
     // Load images
-    //SDL_Surface *background = load_image("background.png");
+    SDL_Surface *background = load_image("background.png");
 
     // Open the fonts
     //TTF_Font *font = TTF_OpenFont ("lazy.ttf", 28);
 
     // Make sure load worked
-    //if (background == NULL) return false;
+    if (background == NULL) return false;
     //if (font == NULL) return false;
 
     return true;
