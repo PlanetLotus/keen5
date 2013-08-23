@@ -9,10 +9,10 @@ $(PROG): $(OBJS)
 	g++ -Wall -o $(PROG) $(OBJS) $(FLAGS)
 
 clean:
-	rm -Force *.o keen5.exe
+	del *.o keen5.exe
 
 # Dependencies
 
+Player.o: Player.cpp Unit.h
 helpers.o: helpers.cpp
 main.o: main.cpp
-Player.o: Player.cpp Unit.h

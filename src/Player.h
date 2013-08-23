@@ -7,8 +7,7 @@
 
 enum directionEnum {UP, DOWN, LEFT, RIGHT};
 
-//class Player : public Unit {
-class Player {
+class Player : public Unit {
     private:
         int ammo;
         int xspeed;     // Movement speed
