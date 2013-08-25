@@ -1,4 +1,13 @@
+#include "SDL/SDL.h"
+#include "SDL/SDL_image.h"
+#include "SDL/SDL_ttf.h"
+#include <string>
+#include <iostream>
+
 #include "helpers.h"
+
+SDL_Surface *screen = NULL;
+SDL_Surface *background = NULL;
 
 SDL_Surface *load_image(std::string filename) {
     SDL_Surface *loadedImage = NULL;
@@ -48,7 +57,7 @@ bool init() {
     if (SDL_Init( SDL_INIT_EVERYTHING ) == -1) return false;
 
     // Set up screen
-    SDL_Surface *screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE );
+    screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE );
 
     // Make sure screen was successfully set up
     if (screen == NULL) return false;
@@ -59,18 +68,25 @@ bool init() {
     // Set window caption
     SDL_WM_SetCaption("Commander Keen 5", NULL);
 
+    // Update screen
+    SDL_Flip(screen);
+
     return true;
 }
 
 bool load_files() {
     // Load images
-    SDL_Surface *background = load_image("background.png");
+    background = load_image("../data/background.png");
 
     // Open the fonts
     //TTF_Font *font = TTF_OpenFont ("lazy.ttf", 28);
 
     // Make sure load worked
-    if (background == NULL) return false;
+    if (background == NULL) {
+        printf("background.png failed to load.\n");
+        return false;
+    }
+
     //if (font == NULL) return false;
 
     return true;

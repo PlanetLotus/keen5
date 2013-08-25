@@ -2,15 +2,26 @@
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
 #include <string>
+#include <iostream>
 
 #include "helpers.h"
 
-int main (int argc, char** args) {
+int main (int argc, char **args) {
+    // Redirect stdout back to console
+    FILE *ctt = fopen("CON", "w");
+    freopen("CON", "w", stdout);
+    freopen("CON", "w", stderr);
+
+    // Initialize variables
     bool running = true;
     SDL_Event event;
 
-    // Initialization
+    // Initialize SDL
     if (!init()) return 1;
+    load_files();
+
+    apply_surface(0, 0, background, screen, NULL);
+    SDL_Flip(screen);
 
     while (running) {
         // Handle user input
@@ -24,11 +35,13 @@ int main (int argc, char** args) {
         if (SDL_PollEvent(&event)) {
             // If a key was pressed
             if (event.type == SDL_KEYDOWN) {
-
+                switch (event.key.keysym.sym) {
+                    case SDLK_ESCAPE: running = false; break;
+                }
             }
 
             // If the user X'd out of the window
-            else if (event.type == SDL_QUIT) {
+            if (event.type == SDL_QUIT) {
                 running = false;
             }
         }
@@ -38,6 +51,7 @@ int main (int argc, char** args) {
 
     // Prepare for quit
     clean_up();
+    //fclose(ctt);  // This crashes PowerShell...
 
     return 0;
 }

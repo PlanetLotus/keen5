@@ -1,5 +1,5 @@
 PROG = keen5.exe
-OBJS = helpers.o main.o Player.o
+OBJS = Player.o helpers.o main.o
 FLAGS = -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_ttf
 
 # This is a Windows makefile.
@@ -13,6 +13,5 @@ clean:
 
 # Dependencies
 
-Player.o: Player.cpp
-helpers.o: helpers.cpp
-main.o: main.cpp
+Player.o: Player.h
+helpers.o: helpers.h
