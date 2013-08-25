@@ -12,6 +12,10 @@ class Player {
         int ammo;
         int xspeed;     // Movement speed
         int yspeed;     // Movement speed
+
+        int frameWidth;
+        int frameHeight;
+        int frame;
         int state;      // Which animation state
     public:
         Player();
@@ -22,6 +26,7 @@ class Player {
         void look(directionEnum dir);
         void climb(directionEnum dir);
         void enter_door();
+        void draw();
 
         // Getters and setters
         void set_ammo(int x);
@@ -33,6 +38,9 @@ class Player {
         int get_xspeed();
         int get_yspeed();
         int get_state();
+
+        int get_frameWidth();
+        int get_frameHeight();
 };
 
 #endif

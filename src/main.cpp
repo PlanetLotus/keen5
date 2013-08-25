@@ -5,6 +5,8 @@
 #include <iostream>
 
 #include "helpers.h"
+#include "Timer.h"
+#include "Player.h"
 
 int main (int argc, char **args) {
     // Redirect stdout back to console
@@ -15,15 +17,23 @@ int main (int argc, char **args) {
     // Initialize variables
     bool running = true;
     SDL_Event event;
+    Timer fps;
 
     // Initialize SDL
     if (!init()) return 1;
-    load_files();
+    if (!load_files()) return 1;
 
     apply_surface(0, 0, background, screen, NULL);
+    //apply_surface(0, 0, keen, screen, NULL);
     SDL_Flip(screen);
 
+    // Create player object
+    Player character;
+
     while (running) {
+        // Start timer
+        fps.start();
+
         // Handle user input
 
         // For non-game-related commands, like pressing Esc to get to the menu,
@@ -47,6 +57,14 @@ int main (int argc, char **args) {
         }
 
         // Call game processing
+        character.draw();
+
+        // Update screen
+        if (SDL_Flip(screen) == -1) return 1;
+
+        // Cap frame rate
+        if (fps.get_ticks() < 1000 / FRAMES_PER_SECOND)
+            SDL_Delay((1000/FRAMES_PER_SECOND) - fps.get_ticks());
     }
 
     // Prepare for quit
