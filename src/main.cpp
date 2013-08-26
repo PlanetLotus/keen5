@@ -47,6 +47,8 @@ int main (int argc, char **args) {
             if (event.type == SDL_KEYDOWN) {
                 switch (event.key.keysym.sym) {
                     case SDLK_ESCAPE: running = false; break;
+                    case SDLK_RIGHT: character.set_state(WALKR); break;
+                    case SDLK_DOWN: character.set_state(STANDR); break;
                 }
             }
 
@@ -55,6 +57,9 @@ int main (int argc, char **args) {
                 running = false;
             }
         }
+
+        // Fill the screen white
+        SDL_FillRect(screen, &screen->clip_rect, SDL_MapRGB(screen->format, 0xFF, 0xFF, 0xFF));
 
         // Call game processing
         character.draw();

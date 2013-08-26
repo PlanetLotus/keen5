@@ -6,17 +6,18 @@
 #define PLAYER_H
 
 enum directionEnum {UP, DOWN, LEFT, RIGHT};
+enum animStateEnum {STANDL, STANDR, WALKL, WALKR};
 
 class Player {
     private:
         int ammo;
-        int xspeed;     // Movement speed
-        int yspeed;     // Movement speed
+        int xVel;     // Movement speed
+        int yVel;     // Movement speed
 
         int frameWidth;
         int frameHeight;
         int frame;
-        int state;      // Which animation state
+        animStateEnum state;
     public:
         Player();
         void shoot();
@@ -30,13 +31,13 @@ class Player {
 
         // Getters and setters
         void set_ammo(int x);
-        void set_xspeed(int x);
-        void set_yspeed(int y);
-        void set_state(int x);
+        void set_xVel(int x);
+        void set_yVel(int y);
+        void set_state(animStateEnum x);
 
         int get_ammo();
-        int get_xspeed();
-        int get_yspeed();
+        int get_xVel();
+        int get_yVel();
         int get_state();
 
         int get_frameWidth();
