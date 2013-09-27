@@ -1,24 +1,25 @@
-keen5
-=====
+<h1>keen5</h1>
 
 My C++ SDL remake of Commander Keen 5.
 
-Compilation
------------
+<h2>Compilation</h2>
 
-Dependencies:
-1) MinGW
-2) SDL with SDL_image and SDL_ttf
-3) Make for Windows
+<h3>Dependencies</h3>
 
-To compile:
-1) Copy all DLL files in the DLL directory either to System32 (SysWOW64 if
-    you're using x64 Windows) or to the directory you're compiling the program
-    in.
-2) Run `make` in the src directory.
+<ol>
+<li>MinGW</li>
+<li>SDL with SDL_image and SDL_ttf</li>
+<li>Make for Windows</li>
+</ol>
 
-Program Motivation
-------------------
+<h3>To compile</h3>
+
+<ol>
+<li>Copy all DLL files in the DLL directory either to System32 (SysWOW64 if you're using x64 Windows) or to the directory you're compiling the program in.</li>
+<li>Run `make` in the src directory.</li>
+</ol>
+
+<h2>Program Motivation</h2>
 
 I started writing this program because I wanted more experience using C++, OOP,
 and graphics libraries. I chose to create a remake of Commander Keen 5
