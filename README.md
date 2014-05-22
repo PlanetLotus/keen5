@@ -2,6 +2,8 @@
 
 My C++ SDL remake of Commander Keen 5.
 
+No longer in development. This has switched from a Windows project to a <a href="https://github.com/PlanetLotus/keen5-linux">Linux project</a>.
+
 <h2>Compilation</h2>
 
 <h3>Dependencies</h3>
